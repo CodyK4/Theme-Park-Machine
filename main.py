@@ -32,17 +32,48 @@ print()
 print("______________________________________________________________________________")
 print()
 time.sleep(0.5)
+
 print("Please enter the amount of adult tickets you would like.")
-adult_amount = int(input(" >> "))
+input_adult = True
+while input_adult:
+  try:
+    adult_amount = int(input(" >> "))
+    input_adult = False
+  except ValueError:
+    print("Please input a number.")
+
 time.sleep(0.2)
+
 print("Please enter the amount of child tickets you would like.")
-child_amount = int(input(" >> "))
+input_child = True
+while input_child:
+  try:
+    child_amount = int(input(" >> "))
+    input_child = False
+  except ValueError:
+    print("Please input a number.")
+
 time.sleep(0.2)
+
 print("Please enter the amount of senior tickets you would like.")
-senior_amount = int(input(" >> "))
+input_senior = True
+while input_senior:
+  try:
+    senior_amount = int(input(" >> "))
+    input_senior = False
+  except ValueError:
+    print("Please input a number.")
+
 time.sleep(0.2)
+
 print("Please enter the amount of wristbands you would like.")
-wristband_amount = int(input(" >> "))
+input_wristband = True
+while input_wristband:
+  try:
+     wristband_amount = int(input(" >> "))
+     input_wristband = False
+  except ValueError:
+    print("Please input a number")
 time.sleep(0.2)
 
 def entrance(ca, aa, sa, wa):
@@ -60,12 +91,23 @@ print(total_cost)#debugprint
 time.sleep(1)
 print("______________________________________________________________________________")
 print()
+
 print("Please Input the lead bookers surname")
-surname = input(" >> ").upper()
+surname_input = True
+while surname_input: 
+  surname = str(input(" >> ").upper())
+  checkbool = surname.isalpha()
+  if checkbool == False:
+     print("Please correctly input your surname.")
+  else:
+     surname_input = False
+
 time.sleep(0.2)
 print()
+
 print("Do you require a parking pass")
 parking = input(" Y/N >> ").upper()
+
 time.sleep(0.2)
 print()
 time.sleep(0.2)
@@ -76,7 +118,7 @@ print("...")
 time.sleep(0.2)
 print("...")
 time.sleep(0.2)
-print(f"Total Cost: £ {total_cost}")
+print(f"Total Cost: £{total_cost}")
 print()
 time.sleep(1)
 
@@ -102,6 +144,10 @@ def collect_money(total_cost, notes_entered):
          print()
          print(f"Your change is: £{abs(change)}")
          loop = False
+      else:
+        time.sleep(0.5)
+        print("Please only use £10 or £20 notes. ")
+        print()
 
 notes_entered = 0
 collect_money(total_cost, notes_entered)
